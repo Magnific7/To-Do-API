@@ -19,7 +19,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 
-app.use('/', router);
+app.use('/todo', router);
 
 app.listen(PORT, () => {
   console.log('Server has started at port', PORT);
