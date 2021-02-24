@@ -1,5 +1,6 @@
 import express from 'express';
 import mongoose from 'mongoose';
+import Validator from '../utils/todovalidator.js'
 const {config} = pkg;
 import pkg from 'dotenv';
 
@@ -37,7 +38,11 @@ async findAll (req, res) {
    * @returns {Object[]} Response Object with its status
    */
 async createOne (req, res)  {
-
+    const { error } = Validator.todoValidator(req.body)
+        
+    if (error) {
+        res.status(400).json({ message : error.message })
+      }
             const todo = new Todo({
                 title : req.body.title,
                 description : req.body.description,
