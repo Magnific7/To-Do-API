@@ -2,10 +2,14 @@ import express from 'express';
 
 import Todo from '../models/todo.js';
 import todoController from '../controllers/todo.js'
-// Todo = require('../models/Language')
+
+import swaggerUi from "swagger-ui-express";
+import swaggerDocument from "./../../swagger.json";
+
 
 const router = express.Router();
 router.use(express.json());
+router.get("/api-docs", swaggerUi.setup(swaggerDocument));
 
 /**
  *  * Route for finding all todos {POST}

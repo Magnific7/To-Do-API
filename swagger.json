@@ -1,0 +1,173 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "description": "This is the document for todos API",
+      "version": "1.0.0",
+      "title": "Todo ",
+      "contact": {
+        "email": "uwikuzo7@gmail.com"
+      }
+    },
+    "tags": [
+      {
+        "name": "todo",
+        "description": " Description for to do "
+      }
+    ],
+    "schemes": ["https", "http"],
+    "paths": {
+      "/todo": {
+        "get": {
+          "tags": ["todo"],
+          "summary": "Get all todos ",
+          "description": "",
+          "operationId": "getTodo",
+          "consumes": ["application/json"],
+          "produces": ["application/json"],
+  
+          "responses": {
+            "200": {
+              "description": "request was successful"
+            }
+          }
+        },
+        "post": {
+          "tags": ["todo"],
+          "summary": "Create a Todo",
+          "description": "",
+          "operationId": "createTodo",
+          "consumes": ["application/json"],
+          "produces": ["application/json"],
+          "parameters": [
+            {
+              "in": "body",
+              "name": "body",
+              "description": "Creating a Todo",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/Todo"
+              }
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "Todo created successfully"
+            },
+            "400": {
+              "description": "Invalid input"
+            }
+          }
+        }
+      },
+      "todo/{id}": {
+        "get": {
+          "tags": ["todo"],
+          "summary": "Get one Todo",
+          "description": "",
+          "operationId": "getOne",
+          "consumes": ["application/json"],
+          "produces": ["application/json"],
+          "parameters": [
+       
+            {
+              "in": "path",
+              "name": "todoId",
+              "description": "Getting one Todo post",
+              "required": true
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "success"
+            }
+          }
+        },
+        "put": {
+          "tags": ["todo"],
+          "summary": "Update an existing todo",
+          "description": "",
+          "operationId": "updateTodo",
+          "consumes": ["application/json"],
+          "produces": ["application/xml"],
+          "parameters": [
+       
+            {
+              "in": "path",
+              "name": "id",
+  
+              "required": true
+            },
+            {
+              "in": "body",
+              "name": "body",
+              "description": "Edit a todo ",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/Todo"
+              }
+            }
+          ],
+          "responses": {
+            "200":{
+              "description":"sucess"
+            },
+            "400": {
+              "description": "Invalid Input"
+            },
+            "404": {
+              "description": "Todo not found"
+            },
+            "403": {
+              "description": "Unauthorized access"
+            }
+          }
+        },
+        "delete": {
+          "tags": ["todo"],
+          "summary": "Delete an existing todo",
+          "description": "",
+          "operationId": "deleteTodo",
+          "consumes": ["application/json"],
+          "produces": ["application/json"],
+          "parameters": [
+            {
+              "in": "path",
+              "name": "id",
+              "required": true
+            }
+          ],
+          "responses": {
+            "200":{
+              "description":"success"
+            },
+            "404": {
+              "description": "Todo not found"
+            },
+            "403": {
+              "description": "Unauthorized access"
+            }
+          }
+        }
+      }
+    
+
+    },
+    "definitions": {
+      "Todo": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "description":{
+            "type":"string"
+          },
+          "priority": {
+            "type": "string",
+            "enum":["HIGH","MEDIUM","LOW"]
+          }
+        }
+      }
+
+    }
+  }
