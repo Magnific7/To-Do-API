@@ -5,19 +5,23 @@
   "main": "server.js",
   "type": "module",
   "scripts": {
-    "start": "nodemon --experimental-json-modules server"
-    
+    "start": "nodemon --experimental-json-modules server",
+    "test": "nyc --reporter=html --reporter=text mocha --require @babel/register ./test/*.test.js --timeout 10000 --exit || true"
   },
   "author": "Uwikuzo Marie Magnificat",
   "license": "ISC",
   "dependencies": {
     "@babel/plugin-transform-runtime": "^7.12.17",
+    "@hapi/joi": "^17.1.1",
+    "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
     "chai": "^4.3.0",
     "chai-http": "^4.3.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "joi": "^17.4.0",
+    "jsonwebtoken": "^8.5.1",
+    "mocha": "^8.3.0",
     "mongodb": "^3.6.4",
     "mongoose": "^5.11.18",
     "nodemon": "^2.0.7",

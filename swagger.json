@@ -59,7 +59,7 @@
           }
         }
       },
-      "todo/{id}": {
+      "/todo/{id}": {
         "get": {
           "tags": ["todo"],
           "summary": "Get one Todo",

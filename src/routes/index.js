@@ -34,14 +34,14 @@ router.get("/api-docs", swaggerUi.setup(swaggerDocument));
     router.get('/:id',todoController.findOne)
     /**
  * Route deleting a single todo {DELETE}
- * @name todo/:id
+ * @name /todo/:id
  * @param {string} path - Express path
  */
     router.delete('/:id',todoController.deleteOne)
     
         /**
  * Route updating a single todo {PATCH}
- * @name todo/:id
+ * @name /todo/:id
  * @param {string} path - Express path
  */
     .patch('/:id',todoController.updateOne)
