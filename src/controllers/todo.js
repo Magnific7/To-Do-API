@@ -50,7 +50,7 @@ async createOne (req, res)  {
             })
             try {
                 const newTodo = await todo.save()
-                res.json({
+                res.status(201).json({
                     status: "Success",
                     message: "todo created successfully",
                     newTodo
@@ -69,8 +69,11 @@ async createOne (req, res)  {
    */
 async findOne (req, res)  {
         try {      
-          const todo = await Todo.findById(req.params.id)      
-            res.json({
+          const todo = await Todo.findById(req.params.id)
+          if (!todo){
+              return res.status(404).json({ messege : "Todo does not exist"})
+          }      
+            return res.status(200).json({
                 payload: todo
             })
          }  catch (err) {

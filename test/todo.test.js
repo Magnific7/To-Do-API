@@ -17,13 +17,13 @@ describe("TODO", () => {
           .post("/todo")
           .send({
             title: "First todo",
-            description: "I had been here before",
+            description: "This is my first todo",
             priority:'LOW'
           })
           .end((error, response) => {
             // expect(error).to.be.null;
             expect(response).to.have.status(201);
-            id = response.body.todo._id;
+            id = response.body._id;
             done();
           });
       });
@@ -43,43 +43,60 @@ describe("TODO", () => {
             done();
           });
       });
-
+    });
+      describe("GETONE /todo/:id", () => {
       it("should get one todo by Id", (done) => {
         chai
           .request(app)
-          .get(`/api/todos/${id}`)
+          .get(`/todo/${id}`)
           .end((error, response) => {
+            console.log(error)
             expect(response).to.have.status(200);
-            done();
           });
+          done();
       });
     });
+
 
     describe("UPDATE /todo/:id", () => {
       it("should update and return 200", (done) => {
         chai
           .request(app)
-          .put(`/api/todos/${id}`)
+          .patch(`/todo/${id}`)
           .send({
             title: "updated todo",
             description: "This is the updated todo",
           })
           .end((error, response) => {
             expect(response).to.have.status(200);
-            done();
           });
+          done();
+      });
+      it("should not upddate update ", (done) => {
+        chai
+          .request(app)
+          .patch(`/todo/${id}`)
+          .send({
+            title: "",
+            description: "",
+          })
+          .end((error, response) => {
+            expect(response).to.have.status(400);
+          });
+          done();
       });
     });
+
 
     describe("DELETE /todo/:id", () => {
       it("should return 200", (done) => {
         chai
           .request(app)
-          .delete(`/api/todos/${id}`)
+          .delete(`/todo/${id}`)
           .end((error, response) => {
             expect(response).to.have.status(200);
-            done();
           });
+          done();
       });
     });
 

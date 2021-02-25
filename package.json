@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "start": "nodemon --experimental-json-modules server",
-    "test": "nyc --reporter=html --reporter=text mocha --require @babel/register ./test/*.test.js --timeout 10000 --exit || true"
+    "test": "nyc --reporter=html --reporter=text mocha --require @babel/register --experimental-json-modules ./test/*.test.js --timeout 10000 --exit || true"
   },
   "author": "Uwikuzo Marie Magnificat",
   "license": "ISC",
