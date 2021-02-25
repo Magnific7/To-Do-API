@@ -4,7 +4,7 @@ import app from "../server.js";
 
 chai.use(chaiHttp);
 const expect = chai.expect;
-let todoId;
+let id;
 
 
 
@@ -23,7 +23,7 @@ describe("TODO", () => {
           .end((error, response) => {
             // expect(error).to.be.null;
             expect(response).to.have.status(201);
-            todoId = response.body.todo._id;
+            id = response.body.todo._id;
             done();
           });
       });
