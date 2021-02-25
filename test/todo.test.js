@@ -44,18 +44,29 @@ describe("TODO", () => {
           });
       });
     });
-      describe("GETONE /todo/:id", () => {
-      it("should get one todo by Id", (done) => {
-        chai
-          .request(app)
-          .get(`/todo/${id}`)
-          .end((error, response) => {
-            console.log(error)
-            expect(response).to.have.status(200);
-          });
-          done();
-      });
-    });
+    //   describe("GETONE /todo/:id", () => {
+    //   it("should get one todo by Id", (done) => {
+    //     chai
+    //       .request(app)
+    //       .get(`/todo/${id}`)
+    //       .end((error, response) => {
+    //         console.log(error)
+    //         expect(response).to.have.status(200);
+    //       });
+    //       done();
+    //   });
+    //   it("should not get one todo by Id", (done) => {
+    //     chai
+    //       .request(app)
+    //       .get(`/todo/1`)
+    //       .end((error, response) => {
+    //         console.log(error)
+    //         expect(response).to.have.status(200);
+    //       });
+    //       done();
+    //   });
+
+    // });
 
 
     describe("UPDATE /todo/:id", () => {

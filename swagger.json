@@ -71,7 +71,7 @@
        
             {
               "in": "path",
-              "name": "todoId",
+              "name": "id",
               "description": "Getting one Todo post",
               "required": true
             }
@@ -82,7 +82,7 @@
             }
           }
         },
-        "put": {
+        "patch": {
           "tags": ["todo"],
           "summary": "Update an existing todo",
           "description": "",

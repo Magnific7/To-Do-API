@@ -7,13 +7,14 @@
   "scripts": {
     "start": "nodemon --experimental-json-modules server",
     "test": "nyc --reporter=html --reporter=text mocha --require @babel/register --experimental-json-modules ./test/*.test.js --timeout 10000 --exit || true",
-    "coverage": "nyc report --reporter=text-lcov | coveralls"
+    "coverage": "nyc report --reporter=text-lcov "
   },
   "author": "Uwikuzo Marie Magnificat",
   "license": "ISC",
   "dependencies": {
     "@babel/plugin-transform-runtime": "^7.12.17",
     "@hapi/joi": "^17.1.1",
+    "babel-plugin-istanbul": "^6.0.0",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
     "chai": "^4.3.0",
